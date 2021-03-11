@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,18 +7,32 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  registrationForm= new FormGroup({
-    userName: new FormControl('Vijay'),
-    password: new FormControl(''),
-    confirmPassword: new FormControl(''),
-    address: new FormGroup(
+
+  constructor(private fb: FormBuilder){}
+  // registrationForm= new FormGroup({
+  //   userName: new FormControl('Vijay'),
+  //   password: new FormControl(''),
+  //   confirmPassword: new FormControl(''),
+  //   address: new FormGroup(
+  //     {
+  //       city: new FormControl(''),
+  //       state: new FormControl(''),
+  //       postalCode: new FormControl('')
+  //     }
+  //   )
+  // });
+
+  registrationForm=this.fb.group({
+    userName: ['Vijay'],
+    password: [''],
+    confirmPassword: [''],
+    address:this.fb.group(
       {
-        city: new FormControl(''),
-        state: new FormControl(''),
-        postalCode: new FormControl('')
-      }
-    )
-  });
+        city: [''],
+        state: [''],
+        postalCode: ['']
+      })
+  })
 
   loadValue()
   {

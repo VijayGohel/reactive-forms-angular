@@ -19,4 +19,14 @@ export class AppComponent {
       }
     )
   });
+
+  loadValue()
+  {
+    this.registrationForm.patchValue({
+      username: 'Vishal',
+      password: 'test',
+      confirmPassword: 'test'
+    }
+    );
+  }
 }

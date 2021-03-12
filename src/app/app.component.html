@@ -21,9 +21,11 @@
 
     <div class="form-group">
       <label for="">Confirm Password</label>
-      <input formControlName="confirmPassword" type="password" name="" id="" class="form-control">
+      <input formControlName="confirmPassword" type="password" name="" id="" class="form-control"
+      [class.is-invalid]="registrationForm.errors.misMatch" >
+      <!--Not Working -->  
     </div>
-
+    
     <div formGroupName="address">
       <div class="form-group">
         <label for="">City</label>

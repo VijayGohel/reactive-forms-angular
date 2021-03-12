@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validator, Validators } from '@angular/forms';
+import { passwordValidator } from './shared/password.validator';
 import {forbiddenNameValidator} from './shared/user-name.validator';
 
 @Component({
@@ -38,7 +39,7 @@ get userName()
         state: [''],
         postalCode: ['']
       })
-  })
+  },{Validators: passwordValidator});
 
   loadValue()
   {
